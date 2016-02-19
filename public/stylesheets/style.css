@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+
+body {
+  background-color: grey;
+  color: #323332;
+}
+
+header {
+  margin-bottom: 45px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 45px;
+  color: #fff;
+  text-shadow: 0 0 2px #323332;
+  line-height: 1;
+  font-family: 'Dosis', sans-serif;
+}
+
+h3 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 2px #323332;
+  line-height: 1;
+  font-family: 'Dosis', sans-serif;
+}
+
+#body-container {
+  display: flex;
+}
+.fixed{
+    width: 400px;
+}
+.flex-item{
+    flex-grow: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 100px;
+  color: #fff;
+  text-shadow: 0 0 2px #323332;
+  line-height: 1;
+  font-family: 'Dosis', sans-serif;
+}
+
+#tweet-container {
+  padding-left: 12%;
+  padding-right: 6%;
+}
+
+#row {
+  padding: 10px;
+}
+
+.tweet {
+  padding: 5px;
+  border: 1px solid rgba(50,51,50,0.5);
+  margin-bottom: 10px;
+  background-color: #fdfdfd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.names, .contents {
+  margin-left: 60px;
+}
+
+form {
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto 20px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input.btn.btn-default {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-top: 8px;
+}

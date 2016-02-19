@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>Welcome to the Twitter Stream</title>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="javascripts/twitter.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<header>
+  <h1>Welcome To The Twitter Finder</h1>
+  <h3>Find everything that's said about your favorite person, place, or thing in real time.</h3>
+</header>
+<hr>
+<body>
+  <div id="body-container">
+    <div class="fixed">
+      <h2>Search for Something on Twitter</h2>
+      <form action="/" name="search">
+        <div class="form-group">
+          <input type="text" class="form-control">
+        </div>
+        <input type="submit" class="btn btn-default">
+      </form>
+    </div>
+    <div class="flex-item">
+      <div id="tweet-container"></div>
+    </div>
+      <script type="text/javascript">
+        var socket = io();
+
+          socket.on('connect', function(){
+            console.log('Connected!!');
+          });
+
+          socket.on('tweets', function(tweet){
+            console.log('we got tweets');
+            var html = '<div id="row" class="row"><div class="col-md-6 col-md-offset-3 tweet"><img src="' + tweet.user_profile_image + '" class="avatar pull-left"/><div class="names"><span class="full-name">' + tweet.name + ' </span><span class="username">@' +tweet.screen_name + '</span></div><div class="contents"><span class="text">' + tweet.text + '</span></div></div></div>';
+            $('#tweet-container').prepend(html);
+          });
+
+          $('form').on('submit', function(){
+            console.log('form submit happened');
+            event.preventDefault();
+            var search_term = $('input').val();
+            socket.emit('updateTerm', search_term);
+          });
+
+          socket.on('updatedTerm', function(searchTerm) {
+            $('h1').text("You searched for: "+ searchTerm);
+            console.log('updatedTerm:', searchTerm);
+          });
+
+        </script>
+  </div>
+</body>
+</html>
