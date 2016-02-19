@@ -33,6 +33,8 @@ var twitter = new Twit({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
+console.log(twitter);
+
 var stream;
 var searchTerm;
 
